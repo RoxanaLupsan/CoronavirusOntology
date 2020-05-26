@@ -1,0 +1,616 @@
+(full-reset)
+(in-knowledge-base virus corona-virus)
+
+;--------------------------------------
+; DEFINING -MAMMALIAN- CONCEPTS
+;--------------------------------------
+(implies Animal Mammalian)
+(implies Human Mammalian)
+(implies Source Mammalian)
+(implies Vector Mammalian)
+(implies Target Mammalian)
+(disjoint Animal Human Source Vector Target)
+
+
+;--------------------------------------
+; DEFINING -ANIMAL- CONCEPTS
+;--------------------------------------
+(implies Pangolin Animal)
+(implies Bat Animal)
+(disjoint Pangolin Bat)
+
+
+;--------------------------------------
+; DEFINING -HUMAN- CONCEPTS
+;--------------------------------------
+(implies Female Human)
+(implies Male Human)
+(disjoint Female Male)
+
+(define-concrete-domain-attribute has_age :type real :domain Human)
+
+(equivalent Child (and Human (< has_age 14.0)))
+(equivalent Teenager (and Human (>= has_age 14.0) (< has_age 18.0)))
+(equivalent YoungAdult (and Human (>= has_age 18.0) (< has_age 27.0)))
+(equivalent Adult (and Human (>= has_age 27.0) (< has_age 65.0)))
+(equivalent Elder (and Human (>= has_age 65.0)))
+
+
+;--------------------------------------
+; DEFINING -VIRUS- CONCEPTS
+;--------------------------------------
+(define-primitive-concept Coronavirus Virus)
+
+
+;--------------------------------------
+; DEFINING -PRECONDITION- CONCEPTS
+;--------------------------------------
+(implies Disease Precondition)
+(instance Cancer Disease)
+(instance Diabetes Disease)
+(instance HeartDisease Disease)
+(instance LungDisease Disease)
+(instance ChronicDisease Disease)
+
+(define-concrete-domain-attribute preconditionName :type string :domain Precondition)
+(define-concrete-domain-attribute state :type string :domain Precondition)
+	
+(attribute-filler Cancer "Leukemia" preconditionName)
+(attribute-filler Cancer "advanced" state)
+
+(attribute-filler Diabetes "LADA" preconditionName)
+(attribute-filler Diabetes "type 2" state)
+
+(attribute-filler HeartDisease "Arrhythmia" preconditionName)
+(attribute-filler HeartDisease "mild" state)
+
+(attribute-filler LungDisease "Asthma" preconditionName)
+(attribute-filler LungDisease "severe" state)
+
+(attribute-filler ChronicDisease "Osteoporosis" preconditionName)
+(attribute-filler ChronicDisease "light" state)
+
+
+;--------------------------------------
+; DEFINING -PROTECTION- CONCEPTS
+;--------------------------------------
+(implies ProtectionForm Protection)
+(instance Distance ProtectionForm)
+(instance Gloves ProtectionForm)
+(instance Mask ProtectionForm)
+(instance WashingHands ProtectionForm)
+(instance StayHome ProtectionForm)
+(instance BiocideSubstances ProtectionForm)
+(instance SanitaryGel ProtectionForm)
+
+(define-concrete-domain-attribute protectionName :type string :domain Protection)
+(define-concrete-domain-attribute brand :type string :domain Protection)
+(define-concrete-domain-attribute units :type integer :domain Protection)	
+(define-concrete-domain-attribute sanitary :type string :domain Precondition)
+(define-concrete-domain-attribute uniqueDescription :type string :domain Precondition)		
+(define-concrete-domain-attribute importance :type string :domain Precondition)
+(define-concrete-domain-attribute effective :type string :domain Precondition)
+							
+(attribute-filler Distance "Safe Distance" protectionName)
+(attribute-filler Distance "NAN" brand)
+(attribute-filler Distance 2 units)
+(attribute-filler Distance "no" sanitary)
+(attribute-filler Distance "keep at least 1.5 meter" uniqueDescription)
+(attribute-filler Distance "high" importance)
+(attribute-filler Distance "yes" effective)
+
+(attribute-filler Gloves "Sanitary Gloves" protectionName)
+(attribute-filler Gloves "China's Life" brand)
+(attribute-filler Gloves 100 units)
+(attribute-filler Gloves "yes" sanitary)
+(attribute-filler Gloves "protect your skin from the particles" uniqueDescription)
+(attribute-filler Gloves "moderate" importance)
+(attribute-filler Gloves "yes" effective)
+
+(attribute-filler Mask "Surgical Masks" protectionName)
+(attribute-filler Mask "China's Life" brand)
+(attribute-filler Mask 50 units)
+(attribute-filler Mask "yes" sanitary)
+(attribute-filler Mask "protect yourself from the Flugge particles" uniqueDescription)
+(attribute-filler Mask "highest" importance)
+(attribute-filler Mask "yes" effective)
+
+(attribute-filler WashingHands "Wash your Hands" protectionName)
+(attribute-filler WashingHands "NAN" brand)
+(attribute-filler WashingHands 0 units)
+(attribute-filler WashingHands "yes" sanitary)
+(attribute-filler WashingHands "wash your hands at least 20 seconds with soap and water" uniqueDescription)
+(attribute-filler WashingHands "highest" importance)
+(attribute-filler WashingHands "yes" effective)
+
+(attribute-filler StayHome "Stay Home" protectionName)
+(attribute-filler StayHome "NAN" brand)
+(attribute-filler StayHome 0 units)
+(attribute-filler StayHome "no" sanitary)
+(attribute-filler StayHome "protect youself by staying home" uniqueDescription)
+(attribute-filler StayHome "high" importance)
+(attribute-filler StayHome "yes" effective)
+
+(attribute-filler BiocideSubstances "Biocide Substances" protectionName)
+(attribute-filler BiocideSubstances "AJAX" brand)
+(attribute-filler BiocideSubstances 1 units)
+(attribute-filler BiocideSubstances "yes" sanitary)
+(attribute-filler BiocideSubstances "desinfect everything" uniqueDescription)
+(attribute-filler BiocideSubstances "high" importance)
+(attribute-filler BiocideSubstances "yes" effective)
+
+(attribute-filler SanitaryGel "Sanitary Gel" protectionName)
+(attribute-filler SanitaryGel "Touch" brand)
+(attribute-filler SanitaryGel 1 units)
+(attribute-filler SanitaryGel "yes" sanitary)
+(attribute-filler SanitaryGel "desinfect the skin of your hands" uniqueDescription)
+(attribute-filler SanitaryGel "moderate" importance)
+(attribute-filler SanitaryGel "yes" effective)
+
+
+;--------------------------------------
+; DEFINING -ILLNESS- CONCEPTS
+;--------------------------------------
+(implies CoronavirusIllness Illness)
+(instance COVID-19 CoronavirusIllness)
+(instance SARS-COV CoronavirusIllness)
+(instance MERS-COV CoronavirusIllness)
+
+(define-concrete-domain-attribute illnessName :type string :domain Illness)
+(define-concrete-domain-attribute regn :type string :domain Illness)
+(define-concrete-domain-attribute family :type string :domain Illness)
+(define-concrete-domain-attribute origin :type string :domain Illness)	
+(define-concrete-domain-attribute placeOrigin :type string :domain Illness)
+(define-concrete-domain-attribute sinceYear :type integer :domain Illness)
+(define-concrete-domain-attribute infects :type string :domain Illness)
+(define-concrete-domain-attribute illnessDescription :type string :domain Illness)
+
+(attribute-filler COVID-19 "Coronavirus Disease 2019" illnessName)
+(attribute-filler COVID-19 "Virus" regn)
+(attribute-filler COVID-19 "Coronaviridae" family)
+(attribute-filler COVID-19 "bat" origin)
+(attribute-filler COVID-19 "China" placeOrigin)
+(attribute-filler COVID-19 2019 sinceYear)
+(attribute-filler COVID-19 "humans, bats, pangolins" infects)
+(attribute-filler COVID-19 "COVID-19 is the disease caused by the Coronavirus, which started on 1st of December 2019, in China" illnessDescription)
+
+(attribute-filler SARS-COV "Severe acute respiratory syndrome coronavirus" illnessName)
+(attribute-filler SARS-COV "Virus" regn)
+(attribute-filler SARS-COV "Coronaviridae" family)
+(attribute-filler SARS-COV "bat" origin)
+(attribute-filler SARS-COV "Asia" placeOrigin)
+(attribute-filler SARS-COV 2003 sinceYear)
+(attribute-filler SARS-COV "humans, bats" infects)
+(attribute-filler SARS-COV "The SARS-COV known as severe acute respiratory syndrome coronavirus started in 2003 in Asia" illnessDescription)
+
+(attribute-filler MERS-COV "Middle East Respiratory Syndrome" illnessName)
+(attribute-filler MERS-COV "Virus" regn)
+(attribute-filler MERS-COV "Coronaviridae" family)
+(attribute-filler MERS-COV "camel" origin)
+(attribute-filler MERS-COV "Saudi Arabi" placeOrigin)
+(attribute-filler MERS-COV 2012 sinceYear)
+(attribute-filler MERS-COV "humans, camels" infects)
+(attribute-filler MERS-COV "Middle East respiratory syndrome is a viral respiratory disease caused by coronavirus that was first identified in Saudi Arabia in 2012" illnessDescription)
+
+
+;--------------------------------------
+; DEFINING -EVOLUTION- CONCEPTS
+;--------------------------------------
+(implies EvolutionForm Evolution)
+(instance Pneumonia EvolutionForm)
+(instance SARS EvolutionForm)
+(instance KidneyFailure EvolutionForm)
+(instance Death EvolutionForm)
+
+(define-concrete-domain-attribute evolutionName :type string :domain Evolution)
+(define-concrete-domain-attribute speed :type string :domain Evolution)
+(define-concrete-domain-attribute chances :type string :domain Evolution)
+(define-concrete-domain-attribute evolutionDescription :type string :domain Evolution)
+
+(attribute-filler Pneumonia "Pneumonia" evolutionName)
+(attribute-filler Pneumonia "normal to fast" speed)
+(attribute-filler Pneumonia "50%" chances)
+(attribute-filler Pneumonia "Pneumonia is an inflammtory condition of the lung, affecting alveoli. COVID-19 patients are hihgly liable to get it." evolutionDescription)
+
+(attribute-filler SARS "Severe Acute Respiratory Symptom" evolutionName)
+(attribute-filler SARS "fast" speed)
+(attribute-filler SARS "80%" chances)
+(attribute-filler SARS "SARS is the most first important symptom a COVID-19 patient can get." evolutionDescription)
+
+(attribute-filler KidneyFailure "Kidney Failure" evolutionName)
+(attribute-filler KidneyFailure "slow" speed)
+(attribute-filler KidneyFailure "40%" chances)
+(attribute-filler KidneyFailure "Patients infected with Coronavirus '19 are highly liable to get kidney failure." evolutionDescription) 
+
+(attribute-filler Death "Death" evolutionName)
+(attribute-filler Death "high for eldery patients, slow for young ones without preconditions" speed)
+(attribute-filler Death "90% eldery patients, 10% young patients without preconditions" chances)
+(attribute-filler Death "The eldery patients are the most at risk. However, anyone with preconditions can experience early death because of the COVID-19." evolutionDescription)
+
+
+;--------------------------------------
+; DEFINING -TREATMENT- CONCEPTS
+;--------------------------------------
+(implies TreatmentType Treatment)
+(instance Vaccine TreatmentType)
+(instance Vitamin-C TreatmentType)
+(instance HIV-drugs TreatmentType)
+(instance Hydroxychloroquine TreatmentType)
+(instance Remdesivir TreatmentType)
+
+(define-concrete-domain-attribute treatmentName :type string :domain Treatment)
+(define-concrete-domain-attribute efficiency :type string :domain Treatment)
+(define-concrete-domain-attribute appliedOrResearch :type string :domain Treatment)
+(define-concrete-domain-attribute treatmentDescription :type string :domain Treatment)
+
+(attribute-filler Vaccine "Vaccine 2020 for COVID-19" treatmentName)
+(attribute-filler Vaccine "highest" efficiency)
+(attribute-filler Vaccine "research" appliedOrResearch)
+(attribute-filler Vaccine "The vaccine is the best method which saves the humanity and the animals from the COVID-19 disease." treatmentDescription)
+
+(attribute-filler Vitamin-C "Infused Vitamin-C" treatmentName)
+(attribute-filler Vitamin-C "low" efficiency)
+(attribute-filler Vitamin-C "applied" appliedOrResearch)
+(attribute-filler Vitamin-C "The infusion of high dose of vitamin-C demonstrated a high immunity and it helped patients." treatmentDescription)
+
+(attribute-filler HIV-drugs "HIV-drugs" treatmentName)
+(attribute-filler HIV-drugs "moderate" efficiency)
+(attribute-filler HIV-drugs "applied" appliedOrResearch)
+(attribute-filler HIV-drugs "The drugs for HIV demonstrated an improvement in the patient's health. However, multiple adverse effect could take place." treatmentDescription)
+
+(attribute-filler Hydroxychloroquine "Hydroxychloroquine" treatmentName)
+(attribute-filler Hydroxychloroquine "high" efficiency)
+(attribute-filler Hydroxychloroquine "applied" appliedOrResearch)
+(attribute-filler Hydroxychloroquine "The hydroxycloroquine is used in treating COVID-19 patients; demonstrated a high improvement in curing." treatmentDescription)
+
+(attribute-filler Remdesivir "Remdesivir" treatmentName)
+(attribute-filler Remdesivir "high" efficiency)
+(attribute-filler Remdesivir "applied" appliedOrResearch)
+(attribute-filler Remdesivir "The Remdesivir is used in treating COVID-19 patients; at the moment is the best cure." treatmentDescription)
+
+
+;--------------------------------------
+; DEFINING -ADVERSE EFFECTS- CONCEPTS
+;--------------------------------------
+(implies AdverseEffectType AdverseEffect)
+(instance Nausea AdverseEffectType)
+(instance Headache AdverseEffectType)
+(instance AppetiteLoss AdverseEffectType)
+(instance Vomiting AdverseEffectType)
+(instance Dizziness AdverseEffectType)
+(instance StomachPain AdverseEffectType)
+
+
+(define-concrete-domain-attribute adverseEffectName :type string :domain AdverseEffect)
+(define-concrete-domain-attribute adverseEffectDescription :type string :domain AdverseEffect)
+
+(attribute-filler Nausea "Nausea" adverseEffectName)
+(attribute-filler Nausea "Nausea is a diffuse sensation of unease and discomfort" adverseEffectDescription)
+
+(attribute-filler Headache "Headache" adverseEffectName)
+(attribute-filler Headache "Headache is felt within the head, often occuring as migrane." adverseEffectDescription)
+
+(attribute-filler AppetiteLoss "Appetite Loss" adverseEffectName)
+(attribute-filler AppetiteLoss "Appetite Loss have been found on many patients, due to the treatment." adverseEffectDescription)
+
+(attribute-filler Vomiting "Vomiting" adverseEffectName)
+(attribute-filler Vomiting "Vomiting is the involuntary, forceful expulsion of the contents of one's stomach through the mouth." adverseEffectDescription)
+
+(attribute-filler Dizziness "Dizziness" adverseEffectName)
+(attribute-filler Dizziness "Dizziness is an impairment in spatial perception and stability." adverseEffectDescription)
+
+(attribute-filler StomachPain "Stomach Pain" adverseEffectName)
+(attribute-filler StomachPain "Many patients experienced stomach pain, due to the treatment." adverseEffectDescription)
+
+
+;--------------------------------------
+; DEFINING -MUTATION- CONCEPTS
+;--------------------------------------
+(implies MutationForm Mutation)
+(instance S MutationForm)
+(instance M MutationForm)
+(instance L MutationForm)
+
+(define-concrete-domain-attribute mutationName :type string :domain Mutation)
+(define-concrete-domain-attribute severity :type string :domain Mutation)
+(define-concrete-domain-attribute attacksMostly :type string :domain Mutation)
+(define-concrete-domain-attribute mutationDescription :type string :domain Mutation)
+
+(attribute-filler S "Mutation S" mutationName)
+(attribute-filler S "high" severity)
+(attribute-filler S "women" attacksMostly)
+(attribute-filler S "This S mutation was found in Romania in 2020" mutationDescription)
+
+(attribute-filler M "Mutation M" mutationName)
+(attribute-filler M "mild" severity)
+(attribute-filler M "men" attacksMostly)
+(attribute-filler M "The M mutation was found in China in 2019" mutationDescription)
+
+(attribute-filler L "Mutation L" mutationName)
+(attribute-filler L "high" severity)
+(attribute-filler L "men" attacksMostly)
+(attribute-filler L "The L mutation was found in the USA in 2020" mutationDescription)
+
+
+;--------------------------------------
+; DEFINING -SYMPTOM- CONCEPTS
+;--------------------------------------
+(implies SymptomType Symptom)
+(instance Fever SymptomType)
+(instance Cough SymptomType)
+(instance BreathShortness SymptomType)
+(instance ChestPressure SymptomType)
+(instance Confusion SymptomType)
+(instance BluishLipsFace SymptomType)
+
+(define-concrete-domain-attribute symptomName :type string :domain Symptom)
+(define-concrete-domain-attribute howOften :type string :domain Symptom)
+(define-concrete-domain-attribute hurts :type string :domain Symptom)
+(define-concrete-domain-attribute symptomDescription :type string :domain Symptom)
+
+(attribute-filler Fever "Fever" symptomName)
+(attribute-filler Fever "daily" howOften)
+(attribute-filler Fever "no" hurts)
+(attribute-filler Fever "the patient experiences fever, usually over 39 degrees Celsius" symptomDescription)
+
+(attribute-filler Cough "Cough" symptomName)
+(attribute-filler Cough "every half an hour" howOften)
+(attribute-filler Cough "sometimes yes" hurts)
+(attribute-filler Cough "the patient experiences hard cough from the chest with expectoration" symptomDescription)
+
+(attribute-filler BreathShortness "Shortness of Breath" symptomName)
+(attribute-filler BreathShortness "every hour" howOften)
+(attribute-filler BreathShortness "yes" hurts)
+(attribute-filler BreathShortness "the patient experiences shortness of breath every day and night" symptomDescription)
+
+(attribute-filler ChestPressure "Pressure in the Chest" symptomName)
+(attribute-filler ChestPressure "almost non-stop" howOften)
+(attribute-filler ChestPressure "yes" hurts)
+(attribute-filler ChestPressure "the patient experiences a hard pressure in his chest" symptomDescription)
+
+(attribute-filler Confusion "Confusion" symptomName)
+(attribute-filler Confusion "almost daily, very often" howOften)
+(attribute-filler Confusion "no" hurts)
+(attribute-filler Confusion "the patient experiences confusion very often during their daily activities" symptomDescription)
+
+(attribute-filler BluishLipsFace "Bluish Lips and Face" symptomName)
+(attribute-filler BluishLipsFace "non-stop" howOften)
+(attribute-filler BluishLipsFace "no" hurts)
+(attribute-filler BluishLipsFace "the patient might have bluish lips and face, because they cannot get enough oxygen" symptomDescription)
+
+
+;--------------------------------------
+; DEFINING -COUNTRY- CONCEPTS
+;--------------------------------------
+(implies Country Outbreak)
+
+
+;--------------------------------------
+; DEFINING -CITY- CONCEPTS
+;--------------------------------------
+(implies CityName City)
+(instance Brasov CityName)
+(instance Paris CityName)
+(instance Milano CityName)
+(instance Madrid CityName)
+(instance Amsterdam CityName)
+(instance Barcelona CityName)
+(instance Zoom CityName)
+
+
+;--------------------------------------
+; DEFINING -TRANSMISSION- CONCEPTS
+;--------------------------------------
+(implies TransmissionMethod Transmission)
+(instance Sneezing TransmissionMethod)
+(instance Coughing TransmissionMethod)
+(instance TouchingFaceWithInfectedDrops TransmissionMethod)
+
+(define-concrete-domain-attribute transmissionName :type string :domain Transmission)
+(define-concrete-domain-attribute howQuick :type string :domain Transmission)
+(define-concrete-domain-attribute transmissionDescription :type string :domain Transmission)
+
+(attribute-filler Sneezing "Sneezing" transmissionName)
+(attribute-filler Sneezing "instant" howQuick)
+(attribute-filler Sneezing "the sneezing droplets are transmitted very quickly and they can remain in the air, because they are Flugge particles" transmissionDescription)
+
+(attribute-filler Coughing "Coughing" transmissionName)
+(attribute-filler Coughing "instant" howQuick)
+(attribute-filler Coughing "the particles from the other person's coughing trasnmits the virus very quickly, and they can also remain in the air" transmissionDescription)
+
+(attribute-filler TouchingFaceWithInfectedDrops "Touching face with infected drops" transmissionName)
+(attribute-filler TouchingFaceWithInfectedDrops "could be very quick" howQuick)
+(attribute-filler TouchingFaceWithInfectedDrops "if the infected droplets touch the mouth, eyes or nose the transmission could be instant" transmissionDescription)
+ 
+ 
+;--------------------------------------
+; DEFINING -ROLES-
+;--------------------------------------
+(define-primitive-role has-direct-contact 		:domain Human :range Human  			:parent has-contact)
+(define-primitive-role has-contact 		 		:domain Human :range Human  			:transitive t)
+(define-primitive-role has-status 		 		:domain Human :range Status 			:inverse status-of)
+(define-primitive-role has-origin-of-infection  :domain Human :range City)
+(define-primitive-role has-detection-location 	:domain Human :range City)
+(define-primitive-role has-confirmation-date 	:domain Human :range Date)
+
+;--------------------------------------
+; DEFINING -STATUS- CONCEPTS
+;--------------------------------------
+(instance recovered Status)
+(instance hospitalized Status)
+(instance quarantine Status)
+(instance selfIsolation Status)
+(instance dead Status)
+
+;--------------------------------------
+; DEFINING -DATE- CONCEPTS
+;--------------------------------------
+(define-concrete-domain-attribute has-Day :type integer :domain Date)
+(define-concrete-domain-attribute has-Month :type integer :domain Date)
+
+(instance d1  (and Date (equal has-Day 26) (equal has-Month 2)))
+(instance d2  (and Date (equal has-Day 27) (equal has-Month 2)))
+(instance d3  (and Date (equal has-Day 28) (equal has-Month 2)))
+(instance d4  (and Date (equal has-Day 29) (equal has-Month 2)))
+(instance d5  (and Date (equal has-Day 1) (equal has-Month 3)))
+(instance d6  (and Date (equal has-Day 2) (equal has-Month 3)))
+
+;--------------------------------------
+; DEFINING -CASES-
+;--------------------------------------
+(instance case1 (and Human (equal has-age 22)))
+(related  case1 recovered has-status)
+(related  case1 Amsterdam has-detection-location)
+(related  case1 Amsterdam has-origin-of-infection)
+(related  case1 d3 has-confirmation-date) 
+(related  case1 case3 has-direct-contact)
+
+(instance case2 (and Human (equal has-age 68)))
+(related  case2 hospitalized has-status)
+(related  case2 Madrid has-detection-location)
+(related  case2 Madrid has-origin-of-infection)
+(related  case2 d2 has-confirmation-date) 
+(related  case2 unknownForwardContact has-direct-contact)
+
+(instance case3 (and Human (equal has-age 23)))
+(related  case3 recovered has-status)
+(related  case3 Amsterdam has-detection-location)
+(related  case3 Amsterdam has-origin-of-infection)
+(related  case3 d1 has-confirmation-date) 
+(related  case3 unknownForwardContact has-direct-contact)
+
+(instance case4 (and Human (equal has-age 22)))
+(related  case4 hospitalized has-status)
+(related  case4 Brasov has-detection-location)
+(related  case4 Amsterdam has-origin-of-infection)
+(related  case4 d4 has-confirmation-date) 
+(related  case4 case1 has-direct-contact)
+
+(instance case5 (and Human (equal has-age 55)))
+(related  case5 hospitalized has-status)
+(related  case5 Barcelona has-detection-location)
+(related  case5 Madrid has-origin-of-infection)
+(related  case5 d4 has-confirmation-date) 
+(related  case5 case3 has-direct-contact)
+
+(instance case6 (and Human (equal has-age 40)))
+(related  case6 hospitalized has-status)
+(related  case6 Amsterdam has-detection-location)
+(related  case6 Amsterdam has-origin-of-infection)
+(related  case6 d4 has-confirmation-date) 
+(related  case6 case1 has-direct-contact)
+
+(instance case7 (and Human (equal has-age 30)))
+(related  case7 hospitalized has-status)
+(related  case7 Amsterdam has-detection-location)
+(related  case7 Zoom has-origin-of-infection)
+(related  case7 d5 has-confirmation-date) 
+(related  case7 unknownForwardContact has-direct-contact)
+
+(instance case8 (and Human (equal has-age 31)))
+(related  case8 selfIsolation has-status)
+(related  case8 Brasov has-detection-location)
+(related  case8 Madrid has-origin-of-infection)
+(related  case8 d5 has-confirmation-date) 
+(related  case8 unknownForwardContact has-direct-contact)
+
+
+;--------------------------------------
+; DEFINING -ROLES-
+;--------------------------------------
+(implies (some has-symptoms top) Vector)
+(implies (some has_developed top) Illness)
+
+(define-primitive-role presents :domain Coronavirus :range Mutation)
+(define-primitive-role causes :domain Coronavirus :range Illness)
+(define-primitive-role attacks :domain Coronavirus :range Source)
+(define-primitive-role transmits_through :domain Coronavirus :range Transmission)
+
+(define-primitive-role has_disease :domain Source :range Precondition)
+(define-primitive-role has_evolution :domain Source :range Evolution)
+(define-primitive-role has_symptoms :domain Source :range Symptom)
+(define-primitive-role comes_from :domain Source :range Outbreak)
+(define-primitive-role has_infected :domain Source :range Vector)
+
+(define-primitive-role transmits :domain Vector :range Target)
+
+(define-primitive-role have_precondition :domain Target :range Precondition)
+(define-primitive-role belongs :domain Target :range Country)
+
+(define-primitive-role heals :domain Treatment :range Source)
+(define-primitive-role heals :domain Treatment :range Vector)
+(define-primitive-role immunizes :domain Treatment :range Target)
+(define-primitive-role has_adverse_effects :domain Treatment :range AdverseEffect)
+
+(define-primitive-role has_cities :domain Country :range City)
+
+(define-primitive-role blocks :domain Protection :range Source)
+(define-primitive-role isolates :domain Protection :range Vector)
+(define-primitive-role protects :domain Protection :range Target)
+
+
+
+;-------------------------------------
+; COMPETENCY QUESTIONS - RACER
+;-------------------------------------
+
+;CQ1: What is COVID-19?
+(individual-told-attribute-value COVID-19 illnessDescription)
+
+;CQ2: Where has the COVID-19 its origin ?
+(individual-told-attribute-value COVID-19 origin)
+
+;CQ3: What are the symptoms of COVID-19?
+(concept-instances Symptom)
+
+;CQ4: Am I at risk of death if infected with COVID-19?
+(individual-told-attribute-value Death evolutionDescription)
+
+;CQ5: How can I protect myself from the Coronavirus?
+(concept-instances Protection)
+
+;CQ6: Which preconditions lead to severe forms of COVID-19?
+(concept-instances Precondition)
+
+;CQ7: What treatments are currently available?
+(concept-instances Treatment)
+
+;CQ8: What kinds of animals are predisposed to be affected by the Coronavirus?
+(concept-children Animal)
+
+;CQ9: How is Coronavirus transmitted?
+(concept-instances Transmission)
+
+;CQ10: How should I wash my hands?
+(individual-told-attribute-value WashingHands uniqueDescription)
+
+;CQ11: Is fever a symptom of COVID19?
+(individual-instance? Fever Symptom)
+
+;CQ12: Who does the Coronavirus attack in the first place?
+(role-range attacks)
+
+;CQ13: Are the face masks effective in preventing the COVID-19 infection?
+(individual-told-attribute-value Mask effective)
+
+;CQ14: Which are all cases that have the origin of infection in Madrid?
+(individual-fillers Madrid (inv has-origin-of-infection))
+ 
+;CQ15: Which are all cases that were detected in Amsterdam?	
+(individual-fillers Amsterdam (inv has-detection-location))
+
+;-------------------------------------
+; INTERROGATIONS - nRQL
+;-------------------------------------
+
+; CQ16: Which are all cases that are recovered?
+(evaluate (length (retrieve-individual-fillers 'recovered 'status-of (current-abox))))
+
+; CQ17: Which are all cases that are hospitalized?					 
+(evaluate (length  (retrieve-individual-fillers 'hospitalized 'status-of (current-abox))))
+
+; CQ18: Which are all relations that were connected to a human (considering the cases)?
+(retrieve (?x) (?x Human))
+
+; What is the verion of nRQL?
+(get-nrql-version)
