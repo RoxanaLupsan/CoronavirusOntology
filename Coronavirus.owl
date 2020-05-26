@@ -1,0 +1,2416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:owl2="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+   xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+   <owl:Ontology rdf:about=""/>
+   <owl:ObjectProperty rdf:about="PROTECTS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="TARGET"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS_DEVELOPED">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="INFECTS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="EVOLUTIONDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="EVOLUTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="ISOLATES">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="VECTOR"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="SINCEYEAR">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#int"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS-SYMPTOMS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="VECTOR"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="BLOCKS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="SOURCE"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="PLACEORIGIN">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS_CITIES">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="COUNTRY"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="CITY"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="ORIGIN">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS_ADVERSE_EFFECTS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="ADVERSEEFFECT"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="FAMILY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="REGN">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="IMMUNIZES">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="TARGET"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS-CONFIRMATION-DATE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="DATE"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="STATE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="ILLNESSNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HEALS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="SOURCE"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS-DETECTION-LOCATION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="CITY"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="BELONGS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="TARGET"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="COUNTRY"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="MUTATIONDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="MUTATION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAVE_PRECONDITION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="TARGET"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="PRECONDITION"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS-ORIGIN-OF-INFECTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="CITY"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="TREATMENTDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TREATMENT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="ATTACKSMOSTLY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="MUTATION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="TRANSMITS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="VECTOR"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="TARGET"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="PRECONDITIONNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="STATUS-OF">
+      <owl:inverseOf rdf:resource="HAS-STATUS"/>
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="STATUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="APPLIEDORRESEARCH">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TREATMENT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="SEVERITY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="MUTATION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="HAS-AGE">
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#int"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS_INFECTED">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="SOURCE"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="VECTOR"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="CHANCES">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="EVOLUTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="EFFICIENCY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TREATMENT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="MUTATIONNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="MUTATION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="COMES_FROM">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="SOURCE"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="OUTBREAK"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS-STATUS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="STATUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="EVOLUTIONNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="EVOLUTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="TREATMENTNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TREATMENT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="EFFECTIVE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS_SYMPTOMS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="SOURCE"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="SYMPTOM"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS-CONTACT">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="HUMAN"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:TransitiveProperty rdf:about="HAS-CONTACT"/>
+   <owl:DatatypeProperty rdf:about="IMPORTANCE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS-DIRECT-CONTACT">
+      <rdfs:subPropertyOf rdf:resource="HAS-CONTACT"/>
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="HUMAN"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="HAS_EVOLUTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="SOURCE"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="EVOLUTION"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="SPEED">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="EVOLUTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="UNIQUEDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="HAS_DISEASE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="SOURCE"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="PRECONDITION"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="TRANSMISSIONDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TRANSMISSION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="SYMPTOMDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="SYMPTOM"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="SANITARY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PRECONDITION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="TRANSMITS_THROUGH">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="CORONAVIRUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="TRANSMISSION"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="HOWQUICK">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TRANSMISSION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="HAS_AGE">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="HUMAN"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#float"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="HURTS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="SYMPTOM"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="UNITS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PROTECTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#int"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="ADVERSEEFFECTDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ADVERSEEFFECT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="ATTACKS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="CORONAVIRUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="SOURCE"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="TRANSMISSIONNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="TRANSMISSION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="HAS-MONTH">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="DATE"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#int"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="HOWOFTEN">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="SYMPTOM"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="BRAND">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PROTECTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="CAUSES">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="CORONAVIRUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="ILLNESS"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="HAS-DAY">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="DATE"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#int"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="SYMPTOMNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="SYMPTOM"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="ADVERSEEFFECTNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ADVERSEEFFECT"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:DatatypeProperty rdf:about="PROTECTIONNAME">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="PROTECTION"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:ObjectProperty rdf:about="PRESENTS">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="CORONAVIRUS"/>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range>
+         <owl:Class rdf:about="MUTATION"/>
+      </rdfs:range>
+   </owl:ObjectProperty>
+   <owl:DatatypeProperty rdf:about="ILLNESSDESCRIPTION">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                     <owl:Class rdf:about="ILLNESS"/>
+                  </owl:unionOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:domain>
+      <rdfs:range resource="http://www.w3.org/2001/XMLSchema#string"/>
+   </owl:DatatypeProperty>
+   <owl:Class rdf:about="BAT">
+      <owl:disjointWith>
+         <owl:Class rdf:about="PANGOLIN"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="MALE">
+      <owl:disjointWith>
+         <owl:Class rdf:about="FEMALE"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <owl:disjointWith>
+         <owl:Class rdf:about="VECTOR"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <owl:disjointWith>
+         <owl:Class rdf:about="SOURCE"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <owl:disjointWith>
+         <owl:Class rdf:about="HUMAN"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <owl:disjointWith>
+         <owl:Class rdf:about="ANIMAL"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="VECTOR">
+      <owl:disjointWith>
+         <owl:Class rdf:about="SOURCE"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="VECTOR">
+      <owl:disjointWith>
+         <owl:Class rdf:about="HUMAN"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="VECTOR">
+      <owl:disjointWith>
+         <owl:Class rdf:about="ANIMAL"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="SOURCE">
+      <owl:disjointWith>
+         <owl:Class rdf:about="HUMAN"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="SOURCE">
+      <owl:disjointWith>
+         <owl:Class rdf:about="ANIMAL"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="HUMAN">
+      <owl:disjointWith>
+         <owl:Class rdf:about="ANIMAL"/>
+      </owl:disjointWith>
+   </owl:Class>
+   <owl:Class rdf:about="ANIMAL">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MAMMALIAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="HUMAN">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MAMMALIAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="SOURCE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MAMMALIAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="VECTOR">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MAMMALIAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MAMMALIAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="PANGOLIN">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="ANIMAL"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="BAT">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="ANIMAL"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="FEMALE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="HUMAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="MALE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="HUMAN"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HAS_AGE"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="HUMAN"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="CHILD">
+      <owl:equivalentClass>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:maxExclusive xsd:value="14.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </owl:equivalentClass>
+   </owl:Class>
+   <owl:Class rdf:about="TEENAGER">
+      <owl:equivalentClass>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:minInclusive xsd:value="14.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:maxExclusive xsd:value="18.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </owl:equivalentClass>
+   </owl:Class>
+   <owl:Class rdf:about="YOUNGADULT">
+      <owl:equivalentClass>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:minInclusive xsd:value="18.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:maxExclusive xsd:value="27.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </owl:equivalentClass>
+   </owl:Class>
+   <owl:Class rdf:about="ADULT">
+      <owl:equivalentClass>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:minInclusive xsd:value="27.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:maxExclusive xsd:value="65.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </owl:equivalentClass>
+   </owl:Class>
+   <owl:Class rdf:about="ELDER">
+      <owl:equivalentClass>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS_AGE"/>
+                  <owl:someValuesFrom>
+                     <xsd:simpleType>
+                        <xsd:restriction xsd:base="http://www.w3.org/2001/XMLSchema#float">
+                           <xsd:minInclusive xsd:value="65.0"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </owl:someValuesFrom>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </owl:equivalentClass>
+   </owl:Class>
+   <owl:Class rdf:about="CORONAVIRUS">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="VIRUS"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="DISEASE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="PRECONDITION"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="PRECONDITIONNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="STATE"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="PROTECTIONFORM">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="PROTECTION"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="PROTECTIONNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="BRAND"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="UNITS"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PROTECTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SANITARY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="UNIQUEDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="IMPORTANCE"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="EFFECTIVE"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="PRECONDITION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="CORONAVIRUSILLNESS">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="ILLNESS"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ILLNESSNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="REGN"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="FAMILY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ORIGIN"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="PLACEORIGIN"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SINCEYEAR"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="INFECTS"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ILLNESSDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="EVOLUTIONFORM">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="EVOLUTION"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="EVOLUTIONNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="EVOLUTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SPEED"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="EVOLUTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="CHANCES"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="EVOLUTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="EVOLUTIONDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="EVOLUTION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="TREATMENTTYPE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="TREATMENT"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="TREATMENTNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="EFFICIENCY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="APPLIEDORRESEARCH"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="TREATMENTDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TREATMENT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="ADVERSEEFFECTTYPE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="ADVERSEEFFECT"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ADVERSEEFFECTNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ADVERSEEFFECT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ADVERSEEFFECTDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ADVERSEEFFECT"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="MUTATIONFORM">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="MUTATION"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="MUTATIONNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="MUTATION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SEVERITY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="MUTATION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="ATTACKSMOSTLY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="MUTATION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="MUTATIONDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="MUTATION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="SYMPTOMTYPE">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="SYMPTOM"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SYMPTOMNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="SYMPTOM"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HOWOFTEN"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="SYMPTOM"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HURTS"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="SYMPTOM"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="SYMPTOMDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="SYMPTOM"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="COUNTRY">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="OUTBREAK"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="CITYNAME">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="CITY"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="TRANSMISSIONMETHOD">
+      <rdfs:subClassOf>
+         <owl:Class rdf:about="TRANSMISSION"/>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="TRANSMISSIONNAME"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TRANSMISSION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HOWQUICK"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TRANSMISSION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="TRANSMISSIONDESCRIPTION"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="TRANSMISSION"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HAS-DAY"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="DATE"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HAS-MONTH"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="DATE"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HAS-SYMPTOMS"/>
+                        <owl:someValuesFrom>
+                           <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+                        </owl:someValuesFrom>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="VECTOR"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="HAS_DEVELOPED"/>
+                        <owl:someValuesFrom>
+                           <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+                        </owl:someValuesFrom>
+                     </owl:Restriction>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class rdf:about="ILLNESS"/>
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="BAT">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="PANGOLIN"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="MALE">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="FEMALE"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="TARGET">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="VECTOR"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="SOURCE"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="HUMAN"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="ANIMAL"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="VECTOR">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="SOURCE"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="HUMAN"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="ANIMAL"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="SOURCE">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="HUMAN"/>
+                  </owl:complementOf>
+               </owl:Class>
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="ANIMAL"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Class rdf:about="HUMAN">
+      <rdfs:subClassOf>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class>
+                  <owl:complementOf>
+                     <owl:Class rdf:about="ANIMAL"/>
+                  </owl:complementOf>
+               </owl:Class>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdfs:subClassOf>
+   </owl:Class>
+   <owl:Thing rdf:about="CASE8">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">31</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="UNKNOWNFORWARDCONTACT"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D5"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="MADRID"/>
+      <HAS-DETECTION-LOCATION rdf:resource="BRASOV"/>
+      <HAS-STATUS rdf:resource="SELFISOLATION"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="D5">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <CITYNAME rdf:about="MADRID">
+   </CITYNAME>
+   <CITYNAME rdf:about="BRASOV">
+   </CITYNAME>
+   <STATUS rdf:about="SELFISOLATION">
+   </STATUS>
+   <owl:Thing rdf:about="CASE7">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="UNKNOWNFORWARDCONTACT"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D5"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="ZOOM"/>
+      <HAS-DETECTION-LOCATION rdf:resource="AMSTERDAM"/>
+      <HAS-STATUS rdf:resource="HOSPITALIZED"/>
+   </owl:Thing>
+   <CITYNAME rdf:about="ZOOM">
+   </CITYNAME>
+   <CITYNAME rdf:about="AMSTERDAM">
+   </CITYNAME>
+   <STATUS rdf:about="HOSPITALIZED">
+   </STATUS>
+   <owl:Thing rdf:about="CASE6">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">40</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="CASE1"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D4"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="AMSTERDAM"/>
+      <HAS-DETECTION-LOCATION rdf:resource="AMSTERDAM"/>
+      <HAS-STATUS rdf:resource="HOSPITALIZED"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="CASE1">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="CASE3"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D3"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="AMSTERDAM"/>
+      <HAS-DETECTION-LOCATION rdf:resource="AMSTERDAM"/>
+      <HAS-STATUS rdf:resource="RECOVERED"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="D4">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">29</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <owl:Thing rdf:about="CASE5">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">55</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="CASE3"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D4"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="MADRID"/>
+      <HAS-DETECTION-LOCATION rdf:resource="BARCELONA"/>
+      <HAS-STATUS rdf:resource="HOSPITALIZED"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="CASE3">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">23</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="UNKNOWNFORWARDCONTACT"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D1"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="AMSTERDAM"/>
+      <HAS-DETECTION-LOCATION rdf:resource="AMSTERDAM"/>
+      <HAS-STATUS rdf:resource="RECOVERED"/>
+   </owl:Thing>
+   <CITYNAME rdf:about="BARCELONA">
+   </CITYNAME>
+   <owl:Thing rdf:about="CASE4">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">22</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="CASE1"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D4"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="AMSTERDAM"/>
+      <HAS-DETECTION-LOCATION rdf:resource="BRASOV"/>
+      <HAS-STATUS rdf:resource="HOSPITALIZED"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="D1">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">26</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <STATUS rdf:about="RECOVERED">
+   </STATUS>
+   <owl:Thing rdf:about="CASE2">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="HUMAN"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-AGE"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">68</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+      <HAS-DIRECT-CONTACT rdf:resource="UNKNOWNFORWARDCONTACT"/>
+      <HAS-CONFIRMATION-DATE rdf:resource="D2"/>
+      <HAS-ORIGIN-OF-INFECTION rdf:resource="MADRID"/>
+      <HAS-DETECTION-LOCATION rdf:resource="MADRID"/>
+      <HAS-STATUS rdf:resource="HOSPITALIZED"/>
+   </owl:Thing>
+   <owl:Thing rdf:about="D2">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">27</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <owl:Thing rdf:about="D3">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">28</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <owl:Thing rdf:about="D6">
+      <rdf:type>
+         <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="DATE"/>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-DAY"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</owl:hasValue>
+               </owl:Restriction>
+               <owl:Restriction>
+                  <owl:onProperty rdf:resource="HAS-MONTH"/>
+                  <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</owl:hasValue>
+               </owl:Restriction>
+            </owl:intersectionOf>
+         </owl:Class>
+      </rdf:type>
+   </owl:Thing>
+   <STATUS rdf:about="DEAD">
+   </STATUS>
+   <STATUS rdf:about="QUARANTINE">
+   </STATUS>
+   <TRANSMISSIONMETHOD rdf:about="TOUCHINGFACEWITHINFECTEDDROPS">
+   </TRANSMISSIONMETHOD>
+   <TRANSMISSIONMETHOD rdf:about="COUGHING">
+   </TRANSMISSIONMETHOD>
+   <TRANSMISSIONMETHOD rdf:about="SNEEZING">
+   </TRANSMISSIONMETHOD>
+   <CITYNAME rdf:about="MILANO">
+   </CITYNAME>
+   <CITYNAME rdf:about="PARIS">
+   </CITYNAME>
+   <SYMPTOMTYPE rdf:about="BLUISHLIPSFACE">
+   </SYMPTOMTYPE>
+   <SYMPTOMTYPE rdf:about="CONFUSION">
+   </SYMPTOMTYPE>
+   <SYMPTOMTYPE rdf:about="CHESTPRESSURE">
+   </SYMPTOMTYPE>
+   <SYMPTOMTYPE rdf:about="BREATHSHORTNESS">
+   </SYMPTOMTYPE>
+   <SYMPTOMTYPE rdf:about="COUGH">
+   </SYMPTOMTYPE>
+   <SYMPTOMTYPE rdf:about="FEVER">
+   </SYMPTOMTYPE>
+   <MUTATIONFORM rdf:about="L">
+   </MUTATIONFORM>
+   <MUTATIONFORM rdf:about="M">
+   </MUTATIONFORM>
+   <MUTATIONFORM rdf:about="S">
+   </MUTATIONFORM>
+   <ADVERSEEFFECTTYPE rdf:about="STOMACHPAIN">
+   </ADVERSEEFFECTTYPE>
+   <ADVERSEEFFECTTYPE rdf:about="DIZZINESS">
+   </ADVERSEEFFECTTYPE>
+   <ADVERSEEFFECTTYPE rdf:about="VOMITING">
+   </ADVERSEEFFECTTYPE>
+   <ADVERSEEFFECTTYPE rdf:about="APPETITELOSS">
+   </ADVERSEEFFECTTYPE>
+   <ADVERSEEFFECTTYPE rdf:about="HEADACHE">
+   </ADVERSEEFFECTTYPE>
+   <ADVERSEEFFECTTYPE rdf:about="NAUSEA">
+   </ADVERSEEFFECTTYPE>
+   <TREATMENTTYPE rdf:about="REMDESIVIR">
+   </TREATMENTTYPE>
+   <TREATMENTTYPE rdf:about="HYDROXYCHLOROQUINE">
+   </TREATMENTTYPE>
+   <TREATMENTTYPE rdf:about="HIV-DRUGS">
+   </TREATMENTTYPE>
+   <TREATMENTTYPE rdf:about="VITAMIN-C">
+   </TREATMENTTYPE>
+   <TREATMENTTYPE rdf:about="VACCINE">
+   </TREATMENTTYPE>
+   <EVOLUTIONFORM rdf:about="DEATH">
+   </EVOLUTIONFORM>
+   <EVOLUTIONFORM rdf:about="KIDNEYFAILURE">
+   </EVOLUTIONFORM>
+   <EVOLUTIONFORM rdf:about="SARS">
+   </EVOLUTIONFORM>
+   <EVOLUTIONFORM rdf:about="PNEUMONIA">
+   </EVOLUTIONFORM>
+   <CORONAVIRUSILLNESS rdf:about="MERS-COV">
+   </CORONAVIRUSILLNESS>
+   <CORONAVIRUSILLNESS rdf:about="SARS-COV">
+   </CORONAVIRUSILLNESS>
+   <CORONAVIRUSILLNESS rdf:about="COVID-19">
+   </CORONAVIRUSILLNESS>
+   <PROTECTIONFORM rdf:about="SANITARYGEL">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="BIOCIDESUBSTANCES">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="STAYHOME">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="WASHINGHANDS">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="MASK">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="GLOVES">
+   </PROTECTIONFORM>
+   <PROTECTIONFORM rdf:about="DISTANCE">
+   </PROTECTIONFORM>
+   <DISEASE rdf:about="CHRONICDISEASE">
+   </DISEASE>
+   <DISEASE rdf:about="LUNGDISEASE">
+   </DISEASE>
+   <DISEASE rdf:about="HEARTDISEASE">
+   </DISEASE>
+   <DISEASE rdf:about="DIABETES">
+   </DISEASE>
+   <DISEASE rdf:about="CANCER">
+   </DISEASE>
+</rdf:RDF>
